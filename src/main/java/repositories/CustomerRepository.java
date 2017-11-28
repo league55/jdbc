@@ -22,7 +22,28 @@ public class CustomerRepository {
 				(rs, rowNum) -> new Customer(rs.getInt("id"),
 						rs.getString("name"), rs.getString("email"), rs.getDate("created_date"))
 		);
+	}
 
+	public List<Customer> findAllOrderByDate() {
+
+		return jdbcTemplate.query(
+				"SELECT * "
+						+ "FROM CUSTOMER "
+						+ "ORDER BY CREATED_DATE",
+				(rs, rowNum) -> new Customer(rs.getInt("id"),
+						rs.getString("name"), rs.getString("email"), rs.getDate("created_date"))
+		);
+	}
+
+	public List<Customer> findAllWhereNameStartsWith(String nameStart) {
+
+		return jdbcTemplate.query(
+				"SELECT * "
+						+ "FROM CUSTOMER "
+						+ "WHERE NAME LIKE '" + nameStart + "%'",
+				(rs, rowNum) -> new Customer(rs.getInt("id"),
+						rs.getString("name"), rs.getString("email"), rs.getDate("created_date"))
+		);
 	}
 
 	// Add new customer
@@ -32,6 +53,5 @@ public class CustomerRepository {
 				name, email, new Date());
 
 	}
-
 
 }

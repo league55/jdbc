@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import model.Customer;
 import repositories.CustomerRepository;
+import repositories.OrderRepository;
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -22,6 +23,9 @@ public class Application {
 
 	@Autowired
 	private CustomerRepository repository;
+
+	@Autowired
+	private OrderRepository orderRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -34,9 +38,12 @@ public class Application {
 
 			List<Customer> all = repository.findAll();
 			logger.info("---------");
-			logger.info(all.get(0));
+			logger.info(all);
 			logger.info("---------");
-			System.out.println(all);
+			logger.info(repository.findAllWhereNameStartsWith("Al"));
+			logger.info("---------");
+			logger.info(orderRepository.findAll());
+
 
 		};
 	}
