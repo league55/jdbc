@@ -19,10 +19,9 @@ public class OrderRepository {
 		return jdbcTemplate.query(
 				"SELECT *FROM ORDERS",
 				(rs, rowNum) -> new Order(rs.getInt("id"),
-						rs.getString("item"),
 						rs.getInt("quantity"),
 						rs.getDate("order_date"),
-						rs.getInt("order_date"))
+						rs.getInt("song_id"))
 		);
 	}
 

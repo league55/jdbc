@@ -5,17 +5,15 @@ import java.util.Date;
 public class Order {
 
 	private Integer id;
-	private String item;
 	private int quantity;
 	private Date orderDate;
-	private int customerId;
+	private int songId;
 
-	public Order(Integer id, String item, int quantity, Date orderDate, int customerId) {
+	public Order(Integer id, int quantity, Date orderDate, int songId) {
 		this.id = id;
-		this.item = item;
 		this.quantity = quantity;
 		this.orderDate = orderDate;
-		this.customerId = customerId;
+		this.songId = songId;
 	}
 
 	public Integer getId() {
@@ -24,14 +22,6 @@ public class Order {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getItem() {
-		return item;
-	}
-
-	public void setItem(String item) {
-		this.item = item;
 	}
 
 	public int getQuantity() {
@@ -50,22 +40,21 @@ public class Order {
 		this.orderDate = orderDate;
 	}
 
-	public int getCustomerId() {
-		return customerId;
+	public int getSongId() {
+		return songId;
 	}
 
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	public void setSongId(int songId) {
+		this.songId = songId;
 	}
 
 	@Override
 	public String toString() {
 		return "Order{" +
 				"id=" + id +
-				", item='" + item + '\'' +
 				", quantity=" + quantity +
 				", orderDate=" + orderDate +
-				", customerId=" + customerId +
+				", songId=" + songId +
 				'}';
 	}
 }
